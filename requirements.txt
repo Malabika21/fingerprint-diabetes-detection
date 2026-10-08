@@ -16,11 +16,13 @@ h5py==3.7.0
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
+joblib==1.2.0
 keras==2.11.0
 libclang==14.0.6
 Markdown==3.4.1
 MarkupSafe==2.1.1
 numpy==1.21.0
+pandas==1.5.3
 oauthlib==3.2.2
 opt-einsum==3.3.0
 packaging==22.0
@@ -43,4 +45,3 @@ typing_extensions==4.4.0
 urllib3==1.26.13
 Werkzeug==2.2.2
 wrapt==1.14.1
-joblib==1.2.0
