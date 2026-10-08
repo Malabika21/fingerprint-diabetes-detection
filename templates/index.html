@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Diabetes Prediction{% endblock %}
+
+{% block content %}
+<div class="relative w-full h-[600px] bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='img/hero.jpg') }}');">
+    {# Dual-color gradient overlay #}
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-red-900 opacity-75"></div>
+    <div class="relative z-10 flex flex-col items-start justify-center h-full text-white px-8 md:px-20 lg:px-32">
+        <p class="text-lg font-medium text-red-300 mb-4">WELCOME TO DIABETES RISK PREDICTION</p>
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Assess Your Diabetes Risk Using Fingerprint Technology</h1>
+        <p class="text-lg mb-8 max-w-xl">Our innovative platform leverages advanced fingerprint analysis combined with vital health indicators to provide an accurate diabetes risk assessment.</p>
+        <div class="flex space-x-4">
+            <a href="{{ url_for('upload_page') }}" class="inline-flex items-center bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                Start Prediction
+            </a>
+            <a href="{{ url_for('about_page') }}" class="inline-block border border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-red-500 transition duration-300">Learn More About the Project</a>
+        </div>
+    </div>
+</div>
+
+{# About Diabetes Risk Prediction Section #}
+<div class="relative py-16 px-4">
+    {# Dual-color gradient background for this section #}
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-green-500"></div>
+    <div class="relative z-10 p-8 rounded-lg shadow-lg max-w-2xl mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-white mb-6">About Diabetes Risk Prediction</h2>
+        <p class="text-lg text-white mb-8">
+            Our innovative platform helps assess diabetes risk by analyzing fingerprint features combined with other vital health indicators.
+        </p>
+        <div class="space-y-4">
+            {% if 'user_id' in session %}
+                <a href="{{ url_for('upload_page') }}" class="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">Begin Your Assessment</a>
+            {% else %}
+                <p class="text-md text-white">To start predicting diabetes risk, please <a href="{{ url_for('login_page') }}" class="text-blue-200 hover:underline font-semibold">Login</a> or <a href="{{ url_for('register_page') }}" class="text-blue-200 hover:underline font-semibold">Register</a>.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{# Our Features/Services Section #}
+<div class="relative py-16 px-4">
+    {# Dual-color gradient background for Features section #}
+    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 to-yellow-300"></div>
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 text-gray-800"> {# Changed text to gray-800 for better contrast on light background #}
+        {# Left Content Area #}
+        <div class="lg:w-1/3 flex flex-col justify-center">
+            <h2 class="text-4xl font-extrabold mb-4">Our Core Features</h2>
+            <div class="w-16 h-1 bg-blue-500 mb-6"></div>
+            <p class="text-lg mb-6">
+                Our platform provides comprehensive tools for diabetes risk prediction, utilizing state-of-the-art machine learning models and diverse data inputs.
+            </p>
+            <p class="text-md mb-8">
+                Leveraging unique insights from fingerprint analysis alongside traditional health metrics, we offer a robust and user-friendly solution for early risk assessment.
+            </p>
+            <a href="{{ url_for('about_page') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 self-start">VIEW ALL FEATURES</a>
+        </div>
+
+        {# Right Grid Area for Services/Features #}
+        <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-px bg-gray-200 border border-gray-200 rounded-lg overflow-hidden shadow-lg">
+            {# Feature Item 1 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.657-1.594 3-3.5 3S5 12.657 5 11V3l3.5 1L12 3v8zM4 17.276a.75.75 0 011.06-.082l2.356 1.84a.75.75 0 00.916 0l2.356-1.84a.75.75 0 01.916 0l2.356 1.84a.75.75 0 00.916 0l2.356-1.84a.75.75 0 01.916 0L22 17.276"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Fingerprint Analysis</h3>
+                    <p class="text-gray-600">Utilize unique biometric patterns from fingerprints to identify potential diabetes markers.</p>
+                </div>
+            </div>
+
+            {# Feature Item 2 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 2h2m-4-2H7m-2 4h4a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Machine Learning Models</h3>
+                    <p class="text-gray-600">Advanced AI algorithms process complex data for highly accurate risk predictions.</p>
+                </div>
+            </div>
+
+            {# Feature Item 3 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Health Data Integration</h3>
+                    <p class="text-gray-600">Combine fingerprint data with traditional health metrics (e.g., BMI, age, genetics).</p>
+                </div>
+            </div>
+
+            {# Feature Item 4 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">User-Friendly Dashboard</h3>
+                    <p class="text-gray-600">Intuitive interface to view your risk assessment and historical data.</p>
+                </div>
+            </div>
+
+            {# Feature Item 5 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.944 12c0 2.899 1.192 5.548 3.146 7.498L12 21.056l5.91-1.558A12.001 12.001 0 0021.056 12a11.955 11.955 0 01-3.04-8.618z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Privacy & Security</h3>
+                    <p class="text-gray-600">Your health data and personal information are protected with robust security measures.</p>
+                </div>
+            </div>
+
+            {# Feature Item 6 #}
+            <div class="bg-white p-8 flex items-start space-x-4">
+                <div class="flex-shrink-0 text-blue-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Actionable Insights</h3>
+                    <p class="text-gray-600">Receive personalized recommendations to help manage and mitigate risk.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# FAQ Section #}
+<div class="relative py-16 px-4">
+    {# Dual-color gradient background for FAQ section #}
+    <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-blue-500 opacity-90"></div>
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 text-white"> {# Changed text to white for better contrast #}
+        {# Left Content Area for FAQ #}
+        <div class="lg:w-1/3 flex flex-col justify-center">
+            <h2 class="text-4xl font-extrabold mb-4">FAQ</h2>
+            <div class="w-16 h-1 bg-white mb-6"></div> {# Changed underline to white #}
+            <p class="text-lg mb-6">
+                Find answers to common questions about our diabetes risk prediction platform, its technology, and how to use it.
+            </p>
+            <p class="text-md mb-8">
+                If you can't find what you're looking for, feel free to contact our support team directly.
+            </p>
+            <a href="{{ url_for('about_page') }}" class="inline-block bg-white hover:bg-gray-200 text-blue-600 font-bold py-3 px-8 rounded-lg transition duration-300 self-start">CONTACT US</a> {# Changed button style for contrast #}
+        </div>
+
+        {# Right Grid Area for FAQ Items #}
+        <div class="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {# FAQ Item 1 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800"> {# Reset text color for content boxes #}
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">How accurate is the prediction?</h3>
+                </div>
+                <p class="text-gray-600">Our platform uses advanced machine learning models trained on extensive datasets to provide a highly accurate risk assessment. However, it's a predictive tool, not a diagnosis.</p>
+            </div>
+
+            {# FAQ Item 2 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">What data is required for prediction?</h3>
+                </div>
+                <p class="text-gray-600">We primarily use fingerprint features. You may also be asked for basic health indicators like age, gender, and BMI to enhance accuracy.</p>
+                </div>
+
+            {# FAQ Item 3 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Is my data secure and private?</h3>
+                </div>
+                <p class="text-gray-600">Yes, we prioritize your privacy and data security. All uploaded data is encrypted and handled according to strict privacy protocols.</p>
+            </div>
+
+            {# FAQ Item 4 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">Can I use this for diagnosis?</h3>
+                </div>
+                <p class="text-gray-600">No, this tool is for risk assessment only and should not replace professional medical advice or diagnosis from a healthcare provider.</p>
+            </div>
+
+            {# FAQ Item 5 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">What if I get a high-risk result?</h3>
+                </div>
+                <p class="text-gray-600">A high-risk result indicates a need for further medical consultation. We recommend discussing the results with your doctor.</p>
+            </div>
+
+            {# FAQ Item 6 #}
+            <div class="bg-white p-6 rounded-lg shadow-md text-gray-800">
+                <div class="flex items-center space-x-3 mb-2">
+                    <div class="text-blue-500">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5L6.11 10.364A1 1 0 007 12h4a1 1 0 00.867-1.636L10.867 7.5A1 1 0 0010 7z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold">How can I contact support?</h3>
+                </div>
+                <p class="text-gray-600">You can reach our support team through the "Contact Us" button on this page or by visiting our dedicated contact page for more options.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
